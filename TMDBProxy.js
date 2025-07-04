@@ -69,4 +69,4 @@
             if (e.name === 'tmdb') {
                 e.body.find('[data-parent="proxy"]').remove();
             }
-        });
+});
