@@ -70,35 +70,3 @@
                 e.body.find('[data-parent="proxy"]').remove();
             }
         });
-    } else {
-        var pluginsUpdate = false;
-        var addCubProxy = true;
-        var plugins = Lampa.Storage.get('plugins', '[]');
-
-        for (var i=0; i < plugins.length; i++) {
-            if (plugins[i].url.indexOf('://cub.rip/plugin/tmdb-proxy') > 0) {
-                addCubProxy = false;
-                plugins[i].status = 1;
-            }
-            if (plugins[i].url.indexOf('.rootu.top/tmdb.js') > 0) {
-                // Delete proxy plugins
-                plugins.splice(i--, 1);
-                pluginsUpdate = true;
-            }
-        }
-
-        if (pluginsUpdate) {
-            if (addCubProxy) {
-                // Add cub tmdb proxy plugin
-                plugins.unshift({
-                    'url': Lampa.Utils.protocol() + 'cub.red/plugin/tmdb-proxy',
-                    'status': 1,
-                    'name': 'TMDB Proxy',
-                    'author': '@lampa'
-                });
-            }
-            // Save plugin
-            Lampa.Storage.set('plugins', plugins);
-        }
-    }
-})();
