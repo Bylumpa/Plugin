@@ -28,12 +28,12 @@
 
     Lampa.TMDB.image = function (url) {
       var base = Lampa.Utils.protocol() + 'image.tmdb.org/' + url;
-      return Lampa.Storage.field('proxy_tmdb') ? 'http://bylampa.online/tmdb/img/' + account(url) : base;
+      return Lampa.Storage.field('proxy_tmdb') ? 'https://bylampa.online/tmdb/img/' + account(url) : base;
     };
 
     Lampa.TMDB.api = function (url) {
       var base = Lampa.Utils.protocol() + 'api.themoviedb.org/3/' + url;
-      return Lampa.Storage.field('proxy_tmdb') ? 'http://bylampa.online/tmdb/api/3/' + account(url) : base;
+      return Lampa.Storage.field('proxy_tmdb') ? 'https://bylampa.online/tmdb/api/3/' + account(url) : base;
     };
 
     Lampa.Settings.listener.follow('open', function (e) {
